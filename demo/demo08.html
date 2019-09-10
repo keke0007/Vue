@@ -12,13 +12,32 @@
     <div id="app">
         <!-- v-if实现显示与隐藏 : 是否加载该元素 -->
         <!-- v-show 实现显示与隐藏: 使用display样式控制 -->
+        <img src="imgs/demo4.jpg" style="width: 200px;height:200px" v-show="flag">
+        <hr/>
+        <img src="imgs/demo4.jpg" style="width: 200px;height:200px" v-if='flag'>
+        <hr/>
+        <button @click='showAndHide'>显示与隐藏</button>
+        <hr/>
+        <!-- 登录前和登录后的效果 -->
+        <div v-if="isLogin">
+            你好,as<a href="http://wwww.baidu.com">退出登录</a>
+        </div>
+        <div v-else>
+            你好,请登录<a href="http://wwww.baidu.com">免费注册</a>
+        </div>
     </div>
     <script>
         // Vue对象 ViewModel
         new Vue({
             el: '#app', // el: 绑定某个id的视图
             data: { //data对象就是 Model
-                message: 'VueJS入门程序............'
+                flag: true,
+                isLogin: false
+            },
+            methods: {
+                showAndHide:function(){
+                    this.flag = !this.flag
+                }
             }
         })
     </script>
