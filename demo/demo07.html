@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>v-for遍历数组</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <!-- div就是 View -->
+    <div id="app">
+        <li v-for="(city,index) in citys">{{city}}========={{index}}</li>
+        <hr />
+        <!-- 遍历对象 value为对象的每个属性的值 -->
+        <li v-for="(value,name) in user">{{value}}=========={{name}}</li>
+        <hr />
+        <!-- 遍历对象数组 -->
+        <li v-for="(user,index) in userList">{{user.username}}====={{index}}</li>
+        <hr/>
+        <table border='1'>
+            <tr>
+                <td>序号</td>
+                <td>姓名</td>
+                <td>年龄</td>
+                <td>住址</td>
+            </tr>
+            <tr v-for="(user,index) in userList">
+                <td>{{index+1}}</td>
+                <td>{{user.username}}</td>
+                <td>{{user.age}}</td>
+                <td>{{user.addr}}</td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        // Vue对象 ViewModel
+        new Vue({
+            el: '#app', // el: 绑定某个id的视图
+            data: { //data对象就是 Model
+                citys: ['北京', '广州', '深圳'],
+                user: {
+                    username: 'as1',
+                    age: 18,
+                    addr: '广州'
+                },
+                userList: [{
+                    username: 'as1',
+                    age: 18,
+                    addr: '广州'
+                },
+                {
+                    username: 'as2',
+                    age: 18,
+                    addr: '广州'
+                },
+                {
+                    username: 'as3',
+                    age: 18,
+                    addr: '广州'
+                }
+            ]
+            }
+        })
+    </script>
+</body>
+
+</html>

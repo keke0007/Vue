@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>插值表达式</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <!-- div就是 View -->
+    <div id="app">
+        {{message}}
+        <h5>
+            {{num*5}}
+        </h5>
+        <!-- == : 判断值是否相等
+             ===: 判断类型和值是否相等
+        -->
+        {{num===10?'true':'false'}}
+    </div>
+    <script>
+        // Vue对象 ViewModel
+        new Vue({
+            el: '#app',
+            data: { //data对象就是 Model
+                message: '插值表达式...',
+                num: '10'
+            }
+        })
+    </script>
+</body>
+
+</html>

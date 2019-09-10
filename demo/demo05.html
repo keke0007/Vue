@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>v-bind指令</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <!-- div就是 View -->
+    <div id="app">
+        <!-- 
+            {{}} 插入值表达式不能用在html标签属性上面获取模型数据
+            v-bind 用于在html标签的属性上面绑定模型的数据(单项绑定)
+         -->
+        <span v-bind:style="'color:' +color">v-bind指令</span>
+    </div>
+    <hr/>
+    <span :style="'color: '+color">v-bind指令</span>
+    <hr/>
+    <button @click="change">改变颜色</button>
+    <script>
+        // Vue对象 ViewModel
+        new Vue({
+            el: '#app', // el: 绑定某个id的视图
+            data: { //data对象就是 Model
+                color: 'red'
+            },
+            methods: {
+                change:function(){
+                    this.color = 'blue'
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

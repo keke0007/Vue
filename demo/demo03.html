@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>键盘按下事件keydown</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <!-- div就是 View -->
+    <div id="app">
+        {{message}}<br/>
+        按下的键:
+        <input type="text" @keydown="fun($event)"/>
+    </div>
+    <script>
+        // Vue对象 ViewModel
+        new Vue({
+            el: '#app', // el: 绑定某个id的视图
+            data: { //data对象就是 Model
+                message: '测试键盘按下事件'
+            },
+            methods: {
+                fun:function(e){
+                    // 获取输入的键
+                    var key = e.keyCode
+                    alert(key)
+
+                    //判断不是数字
+                    if(key<48 || key >57){
+                        alert('你输入的不是数字')
+                        //不然输入框回显输入的内容
+                        //阻止事件默认行为
+                        e.preventDefault()
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

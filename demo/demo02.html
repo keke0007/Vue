@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>点击事件v-on:click</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <!-- div就是 View -->
+    <div id="app">
+        {{message}}<br/>
+        {{text}}
+        <button v-on:click="fun(3)">点击事件</button><br/>
+        <button @click="fun(4)">点击事件</button>
+    </div>
+    <script>
+        // Vue对象 ViewModel
+        new Vue({
+            el: '#app', // el: 绑定某个id的视图
+            data: { //data对象就是 Model
+                text: '还有几天休息?',
+                message: '测试@click点击事件'
+            },
+            // 定义函数
+            methods: {
+                fun:function(num){
+                    // alert(num)
+                    // 访问模型的数据或者调用函数,都是用this
+                    console.log(this)
+                    this.text = this.text + num
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

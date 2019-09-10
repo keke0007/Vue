@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>v-model</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <!-- div就是 View -->
+    <div id="app">
+        <input type="text" value="username" />
+        <input type="text" value="age" />
+        <button @click="updated">v-model</button>
+        <hr />
+        <!-- <input type="text" v-model="username" />
+        <input type="text" v-model="age" />
+        <button @click="updated">v-model</button> -->
+    </div>
+    <script>
+        // Vue对象 ViewModel
+        new Vue({
+            el: '#app', // el: 绑定某个id的视图
+            data: { //data对象就是 Model
+                username: "as",
+                age: 3
+            },
+            methods: {
+                updated() {
+                    alert(this.username + '========' + this.age)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
