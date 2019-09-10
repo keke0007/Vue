@@ -11,13 +11,25 @@
     <!-- div就是 View -->
     <div id="app">
         {{message}}
+        <!-- 
+            VueJs的生命周期,就是VueJs默认执行的方法.这些生命周期方法也称为VueJs的钩子函数
+            8个生命周期方法:
+            beforeCreate : 没有加载模型,没有加载方法
+            created : 加载模型数据,加载方法
+            beforeMount : 没有挂载模型数据到视图
+            mounted : 已经挂载模型数据到视图
+            beforeUpdate : 模型的数据没有更新
+            updated : 模型的数据已经更新
+            beforeDestroy : 模型和实体处于绑定状态
+            destroyed : 模型和实体处于解绑状态
+         -->
     </div>
     <script>
         // Vue对象 ViewModel
         new Vue({
             el: '#app', // el: 绑定某个id的视图
             data: { //data对象就是 Model
-                message: 'VueJS入门程序............'
+                message: ''
             }
         })
     </script>
