@@ -1,9 +1,7 @@
 <!--
- * @Description: In User Settings Edit
- * @Author: your name
+ * @Author: ke
  * @Date: 2019-09-11 16:08:42
- * @LastEditTime: 2019-09-12 16:56:15
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2019-09-20 13:30:10
  -->
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +12,12 @@
 </head>
 
 <body>
+    <button>测试1</button>
+    <br>
+    <button>测试2</button>
+    <br>
+    <button>测试3</button>
+    <br>
     <!-- 
         let关键字
         1. 作用:
@@ -33,6 +37,13 @@
         let age =12;
         // let age =13; let声明的变量不能定义两次,编译会报错
         console.log(age);
+        let btns = document.getElementsByTagName('button')
+        for(let i = 0;i<btns.length;i++){
+            btns[i].onclick = function(){
+                alert(i);
+            }
+        }
+        
     </script>
 </body>
 
