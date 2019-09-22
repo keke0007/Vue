@@ -13,5 +13,15 @@
 <!-- 
  ES6模块化语法将在后面JS模块化章节讲解
  -->
+ <script>
+ document.write('<h4>九九乘法表</h4>')
+ let num = 9;
+ for (let i = 1; i <= num; i++) {
+   for (let j = 1; j <= i; j++) {
+   document.write(j + '&times;' + i  + '=' + (i * j) + "&nbsp;&nbsp;")
+   }
+   document.write('<br>')
+ }
+ </script>
 </body>     
 </html>
