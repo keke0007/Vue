@@ -1,0 +1,66 @@
+<!--
+ * @Author: ke
+ * @Date: 2019-09-25 15:43:27
+ * @LastEditTime: 2019-09-25 16:07:34
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <label> Id: <input type="text" v-model="id"></label>
+            <label> Name: <input type="text" v-model="name"></label>
+            <input type="button" value="添加" @click="add">
+        </div>
+        <!-- 注意 : v-for 循环的时候,key属性智能使用 number或 string -->
+        <!-- key 在使用的时候, 必须使用 v-bind 属性绑定的形式,指定 key的值 -->
+        <!-- 在组建中,使用 v-for 循环的时候,或者在一些特殊情况中,如果 v-for有问题,必须在使用 v-for的
+            同时,指定唯一的 字符串/数字 -->
+            <!-- 指定了 key属性 添加元素的时候就不会出现错位的现象 -->
+        <p v-for="(item,index) in list" :key="item.id">
+            <input type="checkbox">{{item.id}}---{{item.name}}
+        </p>
+    </div>
+    <script>
+        var vm=new Vue({
+           el:'#app',
+           data:{
+               id:'',
+               name:'',
+               list:[
+                   {
+                       id:1,
+                       name:'张三'
+                   },
+                   {
+                       id:2,
+                       name:'李四'
+                   },
+                   {
+                       id:3,
+                       name:'王五'
+                   }
+               ]
+           },
+           methods:{
+               add(){//添加方法
+                //    this.list.push({id:this.id,name:this.name})
+                   this.list.unshift({id:this.id,name:this.name})
+                   this.id='';
+                   this.name=''
+               }
+           }
+        });
+    </script>
+</body>
+
+</html>
